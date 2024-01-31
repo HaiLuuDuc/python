@@ -1,0 +1,41 @@
+from itertools import permutations
+
+def sinhxaunhiphan(n):
+    def quaylui(res):
+        if len(res) == n:
+            print(res)
+            return
+        else:
+            for i in range(0,2):
+                quaylui(res+str(i))
+    quaylui('')
+
+
+def combination(n, k):
+    def quaylui(start, res):
+        if len(res) == k:
+            print(res)
+            return
+        else:
+            for i in range(start, n + 1):
+                quaylui(i+1, res+str(i))
+
+    quaylui(1, '')
+
+# def permutation(n):
+#     arr = [0] * n
+#     for i in range(0, len(arr)):
+#         arr[i] = i+1
+#     for x in list(permutations(sorted(arr))):
+#         print(list(x))
+        
+def permutation(arr):
+    for x in list(permutations(sorted(arr))):
+        print(list(x))
+
+
+n = 4
+sinhxaunhiphan(n)
+combination(n,3)
+#permutation(n)
+permutation(['a','c','b'])
