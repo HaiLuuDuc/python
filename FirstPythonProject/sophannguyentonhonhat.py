@@ -1,6 +1,5 @@
 import math
 
-
 def soluonguocso(n):
     count = 0
     for i in range(1,n+1,1):
@@ -15,8 +14,8 @@ def soluonguocsocuatatca(n):
     return count
 
 for t in range(int(input())):
-    n = int(input())
-    for i in range(n, 10):
+    x = int(input())
+    for i in range(x, 1000000):
         if(soluonguocso(i) > soluonguocsocuatatca(i)):
             print(i)
             break

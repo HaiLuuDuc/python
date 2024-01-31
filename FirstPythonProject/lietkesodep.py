@@ -17,3 +17,4 @@ for t in range(int(input())):
     for i in range(n):
         if(isthuannghich(i) and isok(i)):
             print(i, end=' ')
+    print()
