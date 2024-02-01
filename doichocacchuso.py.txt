@@ -1,0 +1,42 @@
+from itertools import permutations
+
+def replaceString(s,index,value):
+    s = s[:index:] + str(value) +  s[index+1::] 
+    return s
+
+def is0dungdau(s):
+    s = str(s)
+    return s[0] == '0'
+
+def solve(s):
+    found = False
+    arr = str(s).strip()
+    nums = []
+    
+    perm = list(permutations(arr))
+    
+    for i in range(0,len(s)-1):
+        for j in range(i+1, len(s)):
+            swapedNumStr = s
+            tmp = swapedNumStr[i]
+            swapedNumStr = replaceString(swapedNumStr, i, swapedNumStr[j])
+            swapedNumStr = replaceString(swapedNumStr, j, tmp)
+            if(not is0dungdau(swapedNumStr) and not nums.__contains__(int(swapedNumStr))):
+                nums.append(int(swapedNumStr))
+                nums = list(set(nums))
+    # nums.sort(reverse=True)
+    brr = sorted(nums, reverse=True)
+    for x in nums:
+        if(x < int(s)):
+            found = True
+            print(x)
+            break
+    if(not found):
+        print(-1)
+  
+
+#main
+for t in range(int(input())):
+    s = input()
+    solve(s)
+    
