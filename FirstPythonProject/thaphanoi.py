@@ -3,7 +3,7 @@ def Try(n, a, b, c):
         print(a, "->", b)
         return
     Try(n - 1, a, c, b)
-    print(a, "->", b)
+    Try(1, a, b, c)
     Try(n - 1, c, b, a)
 
 

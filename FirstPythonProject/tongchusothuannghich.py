@@ -7,6 +7,9 @@ def isthuannghich(s):
 
 for t in range(int(input())):
     s = input()
+    if(len(s) <= 1):
+        print('NO')
+        continue
     tong = sum(int(i) for i in s)
     if(isthuannghich(tong)):
         print('YES')
