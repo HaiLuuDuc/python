@@ -1,19 +1,17 @@
-import math
+# Lazygarde
 
-
-def souoc(n):
-    count = 0
-    for x in range(1,int(math.sqrt(n))+1):
-        if(n%x==0):
-            if(x == n//x):
-                count += 1
-            else:
-                count += 2
-    return  count
-
-n = int(input())
-count = 0
-for x in range(1,n+1):
-    if(souoc(x) == 9):
-        count += 1
-print(count)
+n, s, i = int(input()), 0, 2
+l = int(n ** (0.5))
+a = [i for i in range(l + 1)]
+while i * i <= l :
+    if a[i] == i :
+        for j in range(i * i, l + 1, i):
+            if a[j] == j : a[j] = i
+    i += 1
+for i in range(2, l + 1) :
+    p = a[i]
+    q = a[i // a[i]]
+    if p * q == i and q != 1 and p != q : s += 1
+    elif a[i] == i :
+        if i ** 8 <= n : s += 1
+print(s)

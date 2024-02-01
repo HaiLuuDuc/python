@@ -1,28 +1,21 @@
-def tohop(arr,n,k):
-    def quaylui(start, res):
-        if(len(res) == k):
-            intohop(arr,res)
-            return
-        elif(len(res) < k):
-            for i in range(start,n):
-                quaylui(i+1,res+str(i))
-    quaylui(0,'')
-
-def intohop(arr,res):
-    for c in res:
-        print(arr[int(c)],end=' ')
+n, k = [int(x) for x in input().split()]
+m = {}
+a = input().split()
+for i in a : m[i] = 1
+a, d = [''], [0]
+for i in sorted(list(m)) :
+    d.append(len(a))
+    a.append(i)
+n = len(a) - 1
+while True :
+    ok = 0
+    for i in range(k) :
+        print(a[d[i + 1]], end = ' ')
     print()
-    return
-
-# n,k = [int(x) for x in input().split()]
-# arr = list(set(input().split()))
-# arr.sort()
-# tohop(arr,len(arr),k)
-
-from itertools import combinations
-n, k = [int (x) for x in input().split()]
-s = sorted(set(input().split()))
-for i in combinations(s, k):
-    print(*i)
-
-
+    for i in range(k, 0, -1) :
+        if d[i] != n - k + i :
+            ok = 1
+            d[i] += 1
+            for j in range(i + 1, k + 1) : d[j] = d[j - 1] + 1
+            break
+    if ok == 0 : break

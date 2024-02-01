@@ -1,11 +1,13 @@
-
-for t in range(int(input())):
+t = int(input())
+for i in range(t) :
     s = input()
-    count = 1
-    for i in range(0,len(s)):
-        if(i+1 < len(s) and s[i] == s[i+1]):
-            count += 1
-        else:
-            print(str(count)+s[i],end='')
-            count = 1
-    print()
+    n = len(s)
+    k = 1
+    for i in range(1, n) :
+        if s[i] != s[i - 1] :
+            print(k,end = "")
+            print(s[i - 1], end = "")
+            k = 1
+        else : k += 1
+    print(k, end = "")
+    print(s[n - 1])

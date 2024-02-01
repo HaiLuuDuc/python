@@ -1,19 +1,16 @@
-p = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ_.'
-
-def getvitri(c):
-    for i in range(0,len(p)):
-        if(p[i]==c):
-            return i
-
-while(True):
-    line = input()
-    if(len(line.split()) == 1 and  int(line) == 0):
-        break
-    arr = line.split()
-    k = int(arr[0])
-    s = arr[1]
-    res = ''
-    for i in range(0, len(s)):
-        res += p[(getvitri(s[i])+k)%28]
-    print(res[::-1])
-
+p = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_."
+while True :
+    ip = input()
+    if ip == "0" : break
+    k, s = ip.split()
+    k = int(k)
+    n = ""
+    for i in s :
+        x = 0
+        for j in p :
+            if i == j :
+                break
+            x += 1
+        x = (x + k) % 28
+        n = p[x] + n
+    print(n)
